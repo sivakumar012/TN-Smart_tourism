@@ -1,0 +1,19 @@
+# demo-wallet — Antigravity feature config
+
+feature: demo-wallet
+version: 1.0.0
+phase: 6
+status: specified
+owner: product
+
+screens:
+  - Wallet setup
+  - Wallet funding
+  - Wallet confirmation
+
+depends_on:
+  - foreign-payment-onboarding
+
+spec_files:
+  - requirements.md
+  - design.md

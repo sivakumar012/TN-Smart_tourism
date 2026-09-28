@@ -1,0 +1,21 @@
+# foreign-payment-onboarding — Antigravity feature config
+
+feature: foreign-payment-onboarding
+version: 1.0.0
+phase: 5
+status: specified
+owner: product
+
+screens:
+  - International visitor payment selection
+  - UPI One World introduction
+  - Visitor verification
+  - Identity verification
+  - Payment help
+
+depends_on:
+  - pass-selection
+
+spec_files:
+  - requirements.md
+  - design.md
