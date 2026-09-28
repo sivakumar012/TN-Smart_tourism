@@ -1,0 +1,18 @@
+# tourist-discovery — Antigravity feature config
+
+feature: tourist-discovery
+version: 1.0.0
+phase: 3
+status: specified
+owner: product
+
+screens:
+  - Home
+  - Explore
+  - Attraction details
+
+depends_on: []
+
+spec_files:
+  - requirements.md
+  - design.md
