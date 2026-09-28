@@ -1,0 +1,18 @@
+# pass-selection — Antigravity feature config
+
+feature: pass-selection
+version: 1.0.0
+phase: 4
+status: specified
+owner: product
+
+screens:
+  - Passes (list)
+  - Pass details
+
+depends_on:
+  - tourist-discovery
+
+spec_files:
+  - requirements.md
+  - design.md
