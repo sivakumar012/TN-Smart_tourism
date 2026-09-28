@@ -1,0 +1,18 @@
+# admin-dashboard — Antigravity feature config
+
+feature: admin-dashboard
+version: 1.0.0
+phase: 10
+status: specified
+owner: product
+
+screens:
+  - Admin dashboard
+
+depends_on:
+  - digital-pass
+  - redemption
+
+spec_files:
+  - requirements.md
+  - design.md

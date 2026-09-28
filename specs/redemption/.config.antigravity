@@ -1,0 +1,17 @@
+# redemption — Antigravity feature config
+
+feature: redemption
+version: 1.0.0
+phase: 9
+status: specified
+owner: product
+
+screens:
+  - Operator redemption interface
+
+depends_on:
+  - digital-pass
+
+spec_files:
+  - requirements.md
+  - design.md

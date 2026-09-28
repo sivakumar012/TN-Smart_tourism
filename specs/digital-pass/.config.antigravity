@@ -1,0 +1,19 @@
+# digital-pass — Antigravity feature config
+
+feature: digital-pass
+version: 1.0.0
+phase: 8
+status: specified
+owner: product
+
+screens:
+  - Booking confirmation
+  - My passes
+  - Digital pass (QR)
+
+depends_on:
+  - demo-payment
+
+spec_files:
+  - requirements.md
+  - design.md

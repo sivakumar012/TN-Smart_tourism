@@ -1,0 +1,18 @@
+# demo-payment — Antigravity feature config
+
+feature: demo-payment
+version: 1.0.0
+phase: 7
+status: specified
+owner: product
+
+screens:
+  - Payment authorisation
+  - Payment success / failure
+
+depends_on:
+  - demo-wallet
+
+spec_files:
+  - requirements.md
+  - design.md
