@@ -1,0 +1,60 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --bg-navy-950: #040B16;
+  --bg-navy-900: #071527;
+  --bg-navy-800: #0B1F3A;
+  --brand-teal: #00A896;
+  --brand-turquoise: #02C9B3;
+  --brand-sand: #F4A261;
+}
+
+body {
+  background-color: var(--bg-navy-950);
+  color: #FFFFFF;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Glassmorphism Card Style */
+.glass-panel {
+  background: rgba(11, 31, 58, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(2, 201, 179, 0.18);
+  border-radius: 1rem;
+}
+
+.glass-panel-hover {
+  transition: all 0.25s ease-in-out;
+}
+.glass-panel-hover:hover {
+  border-color: rgba(2, 201, 179, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 168, 150, 0.25);
+}
+
+/* Pulsing valid dot animation */
+@keyframes pulse-teal {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+}
+
+.animate-pulse-teal {
+  animation: pulse-teal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040B16;
+}
+::-webkit-scrollbar-thumb {
+  background: #00A896;
+  border-radius: 3px;
+}

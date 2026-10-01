@@ -1,0 +1,132 @@
+import { Attraction, PassPackage, PassInclusion } from "@/types";
+
+export const SEED_ATTRACTIONS: Attraction[] = [
+  {
+    id: "attr-shore-temple",
+    name: "Shore Temple",
+    description: "7th-century granite temple complex overlooking the Bay of Bengal in Mahabalipuram, recognized as a UNESCO World Heritage site.",
+    location: "Mahabalipuram",
+    category: "Heritage",
+    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80",
+    demo_price: 600,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "attr-five-rathas",
+    name: "Five Rathas (Pancha Rathas)",
+    description: "Monolithic rock-cut temples carved out of single granite stones during the Pallava dynasty.",
+    location: "Mahabalipuram",
+    category: "Heritage",
+    image: "https://images.unsplash.com/photo-1600100397608-f090742f40fb?auto=format&fit=crop&w=800&q=80",
+    demo_price: 600,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "attr-arjunas-penance",
+    name: "Arjuna's Penance",
+    description: "Giant open-air relief rock carving portraying the descent of the sacred Ganges river from heaven.",
+    location: "Mahabalipuram",
+    category: "Culture",
+    image: "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=800&q=80",
+    demo_price: 300,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "attr-kovalam-beach",
+    name: "Kovalam Surf & Beach Experience",
+    description: "Pristine coastal surfing village on East Coast Road offering serene ocean views and coastal activities.",
+    location: "Kovalam, Chennai ECR",
+    category: "Coastal",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    demo_price: 500,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "attr-dakshinachitra",
+    name: "DakshinaChitra Heritage Museum",
+    description: "Living history museum showcasing traditional arts, crafts, architecture and performing arts of South India.",
+    location: "Muttukadu, ECR Chennai",
+    category: "Culture",
+    image: "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80",
+    demo_price: 350,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "attr-muttukadu-boating",
+    name: "Muttukadu Backwater Boating",
+    description: "Scenic backwater watersports and boating facility located where the backwaters meet the Bay of Bengal.",
+    location: "Muttukadu, Chennai ECR",
+    category: "Experience",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+    demo_price: 400,
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+];
+
+export const SEED_PASS_PACKAGES: PassPackage[] = [
+  {
+    id: "pass-heritage-explorer",
+    name: "Heritage Explorer",
+    description: "Comprehensive access to UNESCO World Heritage monuments in Mahabalipuram and cultural museums along the East Coast Road.",
+    validity_days: 3,
+    demo_price: 1999,
+    benefits: [
+      "Access to all 4 heritage & cultural sites",
+      "Guided audio walkthrough access (demo)",
+      "Valid for 3 full days from activation",
+      "Priority entry access at monument gates"
+    ],
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+  {
+    id: "pass-coastal-discovery",
+    name: "Coastal Discovery",
+    description: "Curated coastal & experience package connecting Chennai's East Coast Road beaches, backwater boating and Shore Temple.",
+    validity_days: 2,
+    demo_price: 1499,
+    benefits: [
+      "Shore Temple entry included",
+      "Muttukadu boat experience voucher (demo)",
+      "Valid for 2 full days from activation",
+      "Coastal activity pass included"
+    ],
+    active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    deleted_at: null,
+  },
+];
+
+export const SEED_PASS_INCLUSIONS: PassInclusion[] = [
+  // Heritage Explorer inclusions
+  { id: "inc-he-1", pass_id: "pass-heritage-explorer", attraction_id: "attr-shore-temple", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+  { id: "inc-he-2", pass_id: "pass-heritage-explorer", attraction_id: "attr-five-rathas", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+  { id: "inc-he-3", pass_id: "pass-heritage-explorer", attraction_id: "attr-arjunas-penance", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+  { id: "inc-he-4", pass_id: "pass-heritage-explorer", attraction_id: "attr-dakshinachitra", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+
+  // Coastal Discovery inclusions
+  { id: "inc-cd-1", pass_id: "pass-coastal-discovery", attraction_id: "attr-shore-temple", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+  { id: "inc-cd-2", pass_id: "pass-coastal-discovery", attraction_id: "attr-kovalam-beach", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+  { id: "inc-cd-3", pass_id: "pass-coastal-discovery", attraction_id: "attr-muttukadu-boating", created_at: new Date().toISOString(), updated_at: new Date().toISOString(), deleted_at: null },
+];
