@@ -1,0 +1,15 @@
+{
+  "ai.indexing.maxFiles": 5000,
+  "ai.indexing.exclude": [
+    "node_modules",
+    "vendor",
+    "venv",
+    ".next",
+    "dist",
+    "build",
+    "coverage",
+    ".git"
+  ],
+  "ai.context.autoInclude": false,
+  "ai.backgroundIndexing": false
+}
