@@ -16,7 +16,7 @@ This is a prototype / MVP demonstration.
 - No real KYC or biometric data is collected.
 - Attraction data, prices, and pass packages are demo content.
 
----all instructions done
+---
 
 ## Core journey
 
