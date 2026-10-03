@@ -137,7 +137,7 @@ export default function HomePage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="px-3 py-1 rounded-full bg-sand-500/15 border border-sand-500/30 text-sand-400 text-xs font-semibold">
-                    Prototype package
+                    Tourism pass
                   </span>
                   <span className="text-xs text-slate-400 font-medium">{pkg.validity_days} days validity</span>
                 </div>

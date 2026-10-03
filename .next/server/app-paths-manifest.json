@@ -1,7 +1,7 @@
 {
-  "/my-passes/page": "app/my-passes/page.js",
   "/explore/page": "app/explore/page.js",
-  "/page": "app/page.js",
   "/payment-help/page": "app/payment-help/page.js",
-  "/redeem/page": "app/redeem/page.js"
+  "/redeem/page": "app/redeem/page.js",
+  "/my-passes/page": "app/my-passes/page.js",
+  "/page": "app/page.js"
 }
