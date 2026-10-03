@@ -3,58 +3,98 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --bg-navy-950: #040B16;
-  --bg-navy-900: #071527;
-  --bg-navy-800: #0B1F3A;
-  --brand-teal: #00A896;
-  --brand-turquoise: #02C9B3;
-  --brand-sand: #F4A261;
+  --bg-navy-950: #0B1C30;
+  --bg-navy-900: #0F172A;
+  --bg-navy-800: #1E293B;
+  --brand-teal: #0D9488;
+  --brand-teal-light: #14B8A6;
+  --brand-teal-dark: #0F766E;
+  --brand-saffron: #D97706;
+  --brand-sand: #FEF3C7;
+  --font-sans: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
 body {
   background-color: var(--bg-navy-950);
-  color: #FFFFFF;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #F8FAFC;
+  font-family: var(--font-sans);
   min-height: 100vh;
   margin: 0;
 }
 
-/* Glassmorphism Card Style */
+/* Coastal Heritage Modernism - Glassmorphism & Card Elevation */
 .glass-panel {
-  background: rgba(11, 31, 58, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(2, 201, 179, 0.18);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(13, 148, 136, 0.22);
   border-radius: 1rem;
 }
 
 .glass-panel-hover {
-  transition: all 0.25s ease-in-out;
-}
-.glass-panel-hover:hover {
-  border-color: rgba(2, 201, 179, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(0, 168, 150, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Pulsing valid dot animation */
+.glass-panel-hover:hover {
+  border-color: rgba(20, 184, 166, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -5px rgba(13, 148, 136, 0.22), 0 8px 10px -6px rgba(15, 23, 42, 0.4);
+}
+
+/* Digital Wallet Credential - Perforated Ticket Divider & Notch */
+.ticket-perforated {
+  position: relative;
+  border-top: 2px dashed rgba(13, 148, 136, 0.25);
+}
+
+.ticket-perforated::before,
+.ticket-perforated::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-navy-950);
+  border-radius: 50%;
+}
+
+.ticket-perforated::before {
+  left: -26px;
+}
+
+.ticket-perforated::after {
+  right: -26px;
+}
+
+/* Pulsing Active Pass Dot */
 @keyframes pulse-teal {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.2); }
+  50% { opacity: 0.35; transform: scale(1.25); }
 }
 
 .animate-pulse-teal {
   animation: pulse-teal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* Pill Button Aura Glow */
+.shadow-teal-aura {
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.35);
+}
+
+.shadow-teal-aura:hover {
+  box-shadow: 0 6px 25px rgba(20, 184, 166, 0.45);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #040B16;
+  background: #0B1C30;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #00A896;
+  background: #0D9488;
   border-radius: 3px;
 }

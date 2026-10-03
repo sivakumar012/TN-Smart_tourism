@@ -13,26 +13,20 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Brand & Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 via-teal-500 to-amber-500 p-0.5 shadow-lg shadow-teal-500/25 group-hover:scale-105 transition-all duration-300">
-                <div className="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
-                  <Compass className="w-5 h-5 text-teal-400 group-hover:rotate-45 transition-transform duration-500" />
-                </div>
-              </div>
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-teal-400 rounded-full border-2 border-navy-950 animate-pulse" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white block font-sans">
-                  {lang === "en" ? "TN smart tourism" : "தமிழ்நாடு சுற்றுலா"}
-                </span>
-                <span className="hidden lg:inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-500/15 text-teal-300 border border-teal-500/30">
+            <div className="relative flex items-center gap-3">
+              <img
+                src="/images/logo.png"
+                alt="SMART TN TOURISM"
+                className="h-9 sm:h-11 w-auto object-contain drop-shadow-lg group-hover:scale-105 transition-all duration-300 rounded-lg"
+              />
+              <div className="hidden md:flex flex-col">
+                <span className="hidden lg:inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-500/15 text-teal-300 border border-teal-500/30 w-max">
                   <Sparkles className="w-2.5 h-2.5" /> PROTOTYPE
                 </span>
+                <span className="text-[11px] text-slate-400 font-medium tracking-wide">
+                  {lang === "en" ? "Explore smarter. Experience more." : "எளிதாகப் பயணம் செய்யுங்கள்"}
+                </span>
               </div>
-              <span className="text-xs text-slate-400 font-medium tracking-wide hidden sm:block">
-                {lang === "en" ? "Explore smarter. Experience more." : "எளிதாகப் பயணம் செய்யுங்கள்"}
-              </span>
             </div>
           </Link>
 
