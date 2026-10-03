@@ -20,9 +20,6 @@ export function Header() {
                 className="h-9 sm:h-11 w-auto object-contain drop-shadow-lg group-hover:scale-105 transition-all duration-300 rounded-lg"
               />
               <div className="hidden md:flex flex-col">
-                <span className="hidden lg:inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-500/15 text-teal-300 border border-teal-500/30 w-max">
-                  <Sparkles className="w-2.5 h-2.5" /> PROTOTYPE
-                </span>
                 <span className="text-[11px] text-slate-400 font-medium tracking-wide">
                   {lang === "en" ? "Explore smarter. Experience more." : "எளிதாகப் பயணம் செய்யுங்கள்"}
                 </span>
