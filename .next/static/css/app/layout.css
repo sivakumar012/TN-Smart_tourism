@@ -961,6 +961,9 @@ video {
 .border-teal-500\/40 {
   border-color: rgb(0 168 150 / 0.4);
 }
+.border-amber-500\/30 {
+  border-color: rgb(245 158 11 / 0.3);
+}
 .border-t-transparent {
   border-top-color: transparent;
 }
@@ -1045,6 +1048,15 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-amber-500\/10 {
+  background-color: rgb(245 158 11 / 0.1);
+}
+.bg-amber-500\/15 {
+  background-color: rgb(245 158 11 / 0.15);
+}
+.bg-navy-900\/50 {
+  background-color: rgb(7 21 39 / 0.5);
 }
 .bg-\[radial-gradient\(circle_at_top_right\2c _var\(--tw-gradient-stops\)\)\] {
   background-image: radial-gradient(circle at top right, var(--tw-gradient-stops));
@@ -1407,6 +1419,17 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
+.text-amber-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity, 1));
+}
+.text-amber-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity, 1));
+}
+.text-amber-400\/80 {
+  color: rgb(251 191 36 / 0.8);
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1432,6 +1455,9 @@ video {
 }
 .opacity-70 {
   opacity: 0.7;
+}
+.opacity-90 {
+  opacity: 0.9;
 }
 .shadow-2xl {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -1484,6 +1510,11 @@ video {
 }
 .transition-transform {
   transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-opacity {
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1585,6 +1616,9 @@ body {
 .hover\:border-teal-500\/50:hover {
   border-color: rgb(0 168 150 / 0.5);
 }
+.hover\:border-teal-500\/60:hover {
+  border-color: rgb(0 168 150 / 0.6);
+}
 .hover\:bg-navy-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(19 45 82 / var(--tw-bg-opacity, 1));
@@ -1632,6 +1666,9 @@ body {
 }
 .hover\:underline:hover {
   text-decoration-line: underline;
+}
+.hover\:opacity-100:hover {
+  opacity: 1;
 }
 .focus\:border-teal-400:focus {
   --tw-border-opacity: 1;

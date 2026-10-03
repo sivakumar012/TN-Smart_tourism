@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Compass, Sparkles, MapPin, ArrowRight, ShieldCheck, Ticket, Landmark, Palmtree, Waves, Camera } from "lucide-react";
+import { Compass, Sparkles, MapPin, ArrowRight, ShieldCheck, Ticket, Landmark, Palmtree, Waves, Camera, Clock } from "lucide-react";
 import { SEED_ATTRACTIONS, SEED_PASS_PACKAGES } from "@/data/seed";
 
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5" /> TN smart tourism — Pilot Corridor
+              <Sparkles className="w-3.5 h-3.5" /> TN smart tourism — Pilot Destinations
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
@@ -19,28 +19,52 @@ export default function HomePage() {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal">
-              Explore heritage monuments, coastal sights, and curated experience passes in Chennai and Mahabalipuram with instant digital QR pass access.
+              Explore heritage monuments, coastal sights, and wellness circuits across Tamil Nadu's pilot corridors with instant digital QR pass access.
             </p>
 
-            {/* Corridor Selector Card */}
-            <div className="p-4 rounded-xl bg-navy-900/80 border border-teal-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-xl shadow-xl">
-              <div className="flex items-center gap-3 w-full sm:w-auto">
-                <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center text-teal-400 shrink-0">
-                  <MapPin className="w-5 h-5" />
+            {/* Destination Corridor Selector List */}
+            <div className="space-y-3 max-w-xl">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Select Tourism Corridor</span>
+              
+              {/* Active Corridor Card */}
+              <div className="p-4 rounded-xl bg-navy-900/90 border border-teal-500/40 flex items-center justify-between gap-4 shadow-xl hover:border-teal-500/60 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center text-teal-400 shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-slate-400 font-medium block">Pilot Destination 01</span>
+                    <span className="text-sm font-bold text-white">Chennai → Mahabalipuram Corridor</span>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs text-slate-400 font-medium block">Pilot Destination</span>
-                  <span className="text-sm font-bold text-white">Chennai → Mahabalipuram Corridor</span>
+
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-400 bg-teal-500/10 px-3 py-1.5 rounded-md border border-teal-500/30 shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                  <span>Active Corridor</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-teal-400 bg-teal-500/10 px-3 py-1.5 rounded-md border border-teal-500/20">
-                <span>Active Corridor</span>
+              {/* Upcoming Corridor Card: Coimbatore */}
+              <div className="p-4 rounded-xl bg-navy-900/50 border border-amber-500/30 flex items-center justify-between gap-4 shadow-md opacity-90 hover:opacity-100 transition-opacity">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center text-amber-400 shrink-0">
+                    <Landmark className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-amber-400/80 font-medium block">Pilot Destination 02</span>
+                    <span className="text-sm font-bold text-slate-200">Coimbatore - Heritage Corridor</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-md border border-amber-500/30 shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Yet to go Live</span>
+                </div>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-3">
               <Link
                 href="/passes"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-base bg-gradient-to-r from-teal-500 to-teal-400 text-navy-950 hover:from-teal-400 hover:to-teal-300 transition-all shadow-lg shadow-teal-500/25 group"

@@ -1,8 +1,10 @@
 {
-  "/payment-help/page": "app/payment-help/page.js",
-  "/payment/verify-identity/page": "app/payment/verify-identity/page.js",
   "/page": "app/page.js",
   "/payment/verify-visitor/page": "app/payment/verify-visitor/page.js",
-  "/passes/page": "app/passes/page.js",
-  "/explore/page": "app/explore/page.js"
+  "/payment/verify-identity/page": "app/payment/verify-identity/page.js",
+  "/payment-help/page": "app/payment-help/page.js",
+  "/explore/page": "app/explore/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/my-passes/page": "app/my-passes/page.js",
+  "/redeem/page": "app/redeem/page.js"
 }
