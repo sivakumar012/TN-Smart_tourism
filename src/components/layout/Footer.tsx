@@ -24,7 +24,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <Info className="w-5 h-5 text-sand-400 shrink-0" />
             <span className="text-xs text-sand-400 font-medium">
-              Prototype simulation — no real payment is processed.
+              Demo simulation — no real payment is processed.
             </span>
           </div>
         </div>
@@ -39,7 +39,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-slate-400">
-              Explore smarter. Experience more. Digital tourism platform prototype.
+              Explore smarter. Experience more. Digital tourism platform.
             </p>
           </div>
 

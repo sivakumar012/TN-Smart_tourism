@@ -248,7 +248,7 @@ function CheckoutContent() {
 
           <div className="space-y-4">
             <div className="space-y-1">
-              <span className="text-xs text-sand-400 font-bold uppercase tracking-wider">Prototype package</span>
+              <span className="text-xs text-sand-400 font-bold uppercase tracking-wider">Pass package</span>
               <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
               <p className="text-xs text-slate-400">{pkg.validity_days} Days validity</p>
             </div>

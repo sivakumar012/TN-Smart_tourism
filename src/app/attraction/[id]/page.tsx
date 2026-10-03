@@ -65,7 +65,7 @@ export default function AttractionDetailPage({ params }: PageProps) {
               <span className="text-xs text-slate-400 block">Single Admission Demo Value</span>
               <span className="text-2xl font-extrabold text-teal-400">₹{attraction.demo_price}</span>
               <span className="text-[11px] text-slate-500 block mt-0.5">
-                Prototype pricing — bundled access available via tourism passes
+                Bundled access available via tourism passes
               </span>
             </div>
 

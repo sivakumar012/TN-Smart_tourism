@@ -155,7 +155,7 @@ function AuthorizePaymentContent() {
       {/* Disclaimer */}
       <div className="p-3.5 rounded-xl bg-sand-500/10 border border-sand-500/30 text-xs text-sand-400 flex items-center gap-2">
         <ShieldCheck className="w-4 h-4 shrink-0" />
-        <span>Prototype simulation — no real payment is processed. Funds are deducted from your demo wallet balance.</span>
+        <span>Demo simulation — no real payment is processed. Funds are deducted from your demo wallet balance.</span>
       </div>
 
       {error && (

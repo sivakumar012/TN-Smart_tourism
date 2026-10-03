@@ -117,7 +117,7 @@ export default function DigitalPassPage({ params }: PageProps) {
         {/* Prototype Pass Disclaimer */}
         <div className="p-3.5 rounded-xl bg-sand-500/10 border border-sand-500/30 text-xs text-sand-400 flex items-center justify-center gap-2 text-center">
           <AlertTriangle className="w-4 h-4 shrink-0 text-sand-400" />
-          <span className="font-semibold">Prototype pass — not a real admission ticket.</span>
+          <span className="font-semibold">Digital tourism pass — pilot admission credential.</span>
         </div>
       </div>
     </div>

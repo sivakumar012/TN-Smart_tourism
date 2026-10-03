@@ -34,7 +34,7 @@ export default function PassDetailPage({ params }: PageProps) {
         <div className="space-y-4 border-b border-teal-500/15 pb-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <span className="px-3.5 py-1 rounded-md bg-sand-500/15 border border-sand-500/30 text-sand-400 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Prototype package
+              <Sparkles className="w-3.5 h-3.5" /> Pass package
             </span>
             <span className="text-xs font-semibold text-teal-400 bg-teal-500/10 px-3 py-1 rounded-md border border-teal-500/20 inline-flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5" /> {pkg.validity_days} Days Validity from activation
