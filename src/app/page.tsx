@@ -9,77 +9,119 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 via-navy-800 to-navy-950 pt-12 pb-20 border-b border-teal-500/20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-teal-500/10 via-transparent to-transparent opacity-70" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5" /> TN smart tourism — Pilot Destinations
-            </div>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Copy & Destination Selectors */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wide">
+                <Sparkles className="w-3.5 h-3.5" /> TN smart tourism — Pilot Destinations
+              </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              Discover Tamil Nadu <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-300">your way.</span>
-            </h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Discover Tamil Nadu <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-300">your way.</span>
+              </h1>
 
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal">
-              Explore heritage monuments, coastal sights, and wellness circuits across Tamil Nadu's pilot corridors with instant digital QR pass access.
-            </p>
+              <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal">
+                Explore heritage monuments, coastal sights, and wellness circuits across Tamil Nadu's pilot corridors with instant digital QR pass access.
+              </p>
 
-            {/* Destination Corridor Selector List */}
-            <div className="space-y-3 max-w-xl">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Select Tourism Corridor</span>
-              
-              {/* Active Corridor Card */}
-              <div className="p-4 rounded-xl bg-navy-900/90 border border-teal-500/40 flex items-center justify-between gap-4 shadow-xl hover:border-teal-500/60 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center text-teal-400 shrink-0">
-                    <MapPin className="w-5 h-5" />
+              {/* Destination Corridor Selector List */}
+              <div className="space-y-3 max-w-xl">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">Select Tourism Corridor</span>
+                
+                {/* Active Corridor Card */}
+                <div className="p-4 rounded-xl bg-navy-900/90 border border-teal-500/40 flex items-center justify-between gap-4 shadow-xl hover:border-teal-500/60 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center text-teal-400 shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-xs text-slate-400 font-medium block">Pilot Destination 01</span>
+                      <span className="text-sm font-bold text-white">Chennai → Mahabalipuram Corridor</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-xs text-slate-400 font-medium block">Pilot Destination 01</span>
-                    <span className="text-sm font-bold text-white">Chennai → Mahabalipuram Corridor</span>
+
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-400 bg-teal-500/10 px-3 py-1.5 rounded-md border border-teal-500/30 shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                    <span>Active Corridor</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-teal-400 bg-teal-500/10 px-3 py-1.5 rounded-md border border-teal-500/30 shrink-0">
-                  <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                  <span>Active Corridor</span>
+                {/* Upcoming Corridor Card: Coimbatore */}
+                <div className="p-4 rounded-xl bg-navy-900/50 border border-amber-500/30 flex items-center justify-between gap-4 shadow-md opacity-90 hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center text-amber-400 shrink-0">
+                      <Landmark className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-xs text-amber-400/80 font-medium block">Pilot Destination 02</span>
+                      <span className="text-sm font-bold text-slate-200">Coimbatore - Heritage Corridor</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-md border border-amber-500/30 shrink-0">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Yet to go Live</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Upcoming Corridor Card: Coimbatore */}
-              <div className="p-4 rounded-xl bg-navy-900/50 border border-amber-500/30 flex items-center justify-between gap-4 shadow-md opacity-90 hover:opacity-100 transition-opacity">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center text-amber-400 shrink-0">
-                    <Landmark className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-amber-400/80 font-medium block">Pilot Destination 02</span>
-                    <span className="text-sm font-bold text-slate-200">Coimbatore - Heritage Corridor</span>
-                  </div>
-                </div>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-3">
+                <Link
+                  href="/passes"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-base bg-gradient-to-r from-teal-500 to-teal-400 text-navy-950 hover:from-teal-400 hover:to-teal-300 transition-all shadow-lg shadow-teal-500/25 group"
+                >
+                  <span>Explore passes</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
 
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-md border border-amber-500/30 shrink-0">
-                  <Clock className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Yet to go Live</span>
-                </div>
+                <Link
+                  href="/explore"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-base bg-navy-800 text-white border border-teal-500/30 hover:bg-navy-700 hover:border-teal-500/50 transition-all"
+                >
+                  <Compass className="w-5 h-5 text-teal-400" />
+                  <span>Plan my visit</span>
+                </Link>
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-3">
-              <Link
-                href="/passes"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-base bg-gradient-to-r from-teal-500 to-teal-400 text-navy-950 hover:from-teal-400 hover:to-teal-300 transition-all shadow-lg shadow-teal-500/25 group"
-              >
-                <span>Explore passes</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            {/* Right Column: Medium Showcase Banner (Traditional + Beach + Leisure) */}
+            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+              <div className="relative rounded-2xl glass-panel p-3 border-teal-500/30 shadow-2xl overflow-hidden group hover:border-teal-500/50 transition-all duration-300">
+                {/* Banner Image Container */}
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-navy-950">
+                  <img
+                    src="/images/tn_hero_banner.jpg"
+                    alt="Tamil Nadu Tourism — Traditional Heritage, Beaches & Leisure Backwaters"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
 
-              <Link
-                href="/explore"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-base bg-navy-800 text-white border border-teal-500/30 hover:bg-navy-700 hover:border-teal-500/50 transition-all"
-              >
-                <Compass className="w-5 h-5 text-teal-400" />
-                <span>Plan my visit</span>
-              </Link>
+                  {/* Overlaid Pill Badges */}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-teal-300 text-xs font-semibold border border-teal-500/30 shadow-md">
+                      <Landmark className="w-3.5 h-3.5 text-teal-400" /> Traditional Heritage
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-amber-300 text-xs font-semibold border border-amber-500/30 shadow-md">
+                      <Waves className="w-3.5 h-3.5 text-amber-400" /> Coromandel Coast
+                    </span>
+                  </div>
+
+                  <div className="absolute top-3 right-3">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-emerald-300 text-xs font-semibold border border-emerald-500/30 shadow-md">
+                      <Palmtree className="w-3.5 h-3.5 text-emerald-400" /> Leisure & Backwaters
+                    </span>
+                  </div>
+
+                  {/* Bottom Image Caption */}
+                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-navy-900/80 backdrop-blur-md border border-teal-500/20 space-y-1">
+                    <span className="text-xs font-bold text-white block">Experience Enchanting Tamil Nadu</span>
+                    <p className="text-[11px] text-slate-300 leading-tight">
+                      Ancient Chola & Pallava architecture, pristine coastal beaches, and tranquil backwater leisure circuits.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
