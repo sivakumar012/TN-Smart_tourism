@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Copy & Destination Selectors */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5" /> TN smart tourism — Pilot Destinations
               </div>
@@ -85,41 +85,16 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: Medium Showcase Banner (Traditional + Beach + Leisure) */}
-            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
-              <div className="relative rounded-2xl glass-panel p-3 border-teal-500/30 shadow-2xl overflow-hidden group hover:border-teal-500/50 transition-all duration-300">
+            {/* Right Column: Larger Animated Photo-Realistic Banner */}
+            <div className="lg:col-span-6 relative mt-6 lg:mt-0">
+              <div className="relative rounded-2xl glass-panel p-3.5 border-teal-500/30 shadow-2xl overflow-hidden group hover:border-teal-500/60 transition-all duration-500">
                 {/* Banner Image Container */}
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-navy-950">
+                <div className="relative aspect-[4/3] min-h-[360px] sm:min-h-[420px] rounded-xl overflow-hidden bg-navy-950 shadow-inner">
                   <img
                     src="/images/tn_hero_banner.jpg"
-                    alt="Tamil Nadu Tourism — Traditional Heritage, Beaches & Leisure Backwaters"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    alt="Foreign tourist scanning QR code for UPI tourism pass in Tamil Nadu"
+                    className="w-full h-full object-cover animate-kenburns"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
-
-                  {/* Overlaid Pill Badges */}
-                  <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-teal-300 text-xs font-semibold border border-teal-500/30 shadow-md">
-                      <Landmark className="w-3.5 h-3.5 text-teal-400" /> Traditional Heritage
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-amber-300 text-xs font-semibold border border-amber-500/30 shadow-md">
-                      <Waves className="w-3.5 h-3.5 text-amber-400" /> Coromandel Coast
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-navy-950/80 backdrop-blur-md text-emerald-300 text-xs font-semibold border border-emerald-500/30 shadow-md">
-                      <Palmtree className="w-3.5 h-3.5 text-emerald-400" /> Leisure & Backwaters
-                    </span>
-                  </div>
-
-                  {/* Bottom Image Caption */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-navy-900/80 backdrop-blur-md border border-teal-500/20 space-y-1">
-                    <span className="text-xs font-bold text-white block">Experience Enchanting Tamil Nadu</span>
-                    <p className="text-[11px] text-slate-300 leading-tight">
-                      Ancient Chola & Pallava architecture, pristine coastal beaches, and tranquil backwater leisure circuits.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

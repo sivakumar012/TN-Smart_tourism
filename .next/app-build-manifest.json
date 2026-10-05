@@ -41,30 +41,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/payment/verify-identity/page.js"
     ],
-    "/payment-help/page": [
+    "/payment/wallet-setup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/payment-help/page.js"
+      "static/chunks/app/payment/wallet-setup/page.js"
     ],
-    "/explore/page": [
+    "/payment/wallet-funding/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/explore/page.js"
+      "static/chunks/app/payment/wallet-funding/page.js"
     ],
-    "/admin/page": [
+    "/payment/wallet-confirm/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/chunks/app/payment/wallet-confirm/page.js"
     ],
-    "/my-passes/page": [
+    "/payment/authorize/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/my-passes/page.js"
+      "static/chunks/app/payment/authorize/page.js"
     ],
-    "/redeem/page": [
+    "/payment/result/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/redeem/page.js"
+      "static/chunks/app/payment/result/page.js"
+    ],
+    "/pass/[ref]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pass/[ref]/page.js"
     ]
   }
 }

@@ -1,7 +1,8 @@
 {
-  "/explore/page": "app/explore/page.js",
-  "/my-passes/page": "app/my-passes/page.js",
+  "/payment/wallet-confirm/page": "app/payment/wallet-confirm/page.js",
+  "/payment/authorize/page": "app/payment/authorize/page.js",
+  "/payment/wallet-funding/page": "app/payment/wallet-funding/page.js",
+  "/payment/result/page": "app/payment/result/page.js",
   "/page": "app/page.js",
-  "/payment-help/page": "app/payment-help/page.js",
-  "/redeem/page": "app/redeem/page.js"
+  "/pass/[ref]/page": "app/pass/[ref]/page.js"
 }
