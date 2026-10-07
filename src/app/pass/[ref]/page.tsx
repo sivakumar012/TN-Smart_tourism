@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import QRCode from "react-qr-code";
 import { Ticket, MapPin, Clock, ShieldCheck, ArrowLeft, CheckCircle2, AlertTriangle } from "lucide-react";
 import { db } from "@/lib/db";
+import { DigitalPassAnalytics } from "@/components/analytics/DigitalPassAnalytics";
 
 interface PageProps {
   params: {
