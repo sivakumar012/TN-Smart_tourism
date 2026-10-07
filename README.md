@@ -65,6 +65,7 @@ International tourists visiting Tamil Nadu historically face friction at attract
 | Phase 10: Admin Dashboard | Live analytics, revenue, pass breakdown, & redemption logs | Complete |
 | Phase 11: End-to-End Testing | Automated Jest E2E test suites & property validation | Complete |
 | Phase 12: UX & Aesthetics Refinement | Google Stitch aligned UI, glassmorphism, responsive hero showcase | Complete |
+| Phase 13: GA4 Telemetry & Funnel Tracking | Privacy-first GA4 integration, Consent Mode v2, e-commerce funnel, zero-PII | Complete |
 
 ---
 
@@ -175,10 +176,57 @@ The current implementation (`DemoPaymentProvider`) simulates real-world UPI One 
 
 ---
 
+## Google Analytics 4 (GA4) Integration & Telemetry
+
+The platform incorporates privacy-by-design GA4 event telemetry across the entire tourist journey:
+
+### 1. Tracked Funnel & Events
+
+- **Attractions & Passes Discovery**: `view_item_list`, `view_item`, `select_item`
+- **Checkout & Payment**: `begin_checkout`, `add_payment_info`
+- **UPI One World Onboarding**: `payment_onboarding_started`, `visitor_verification_completed`, `wallet_funding_completed`
+- **Booking & Safety**: `purchase` (deduplicated by `transaction_id`), `booking_failed` (on payment errors, never logged as purchase)
+- **Pass Usage & Gate Redemption**: `view_digital_pass`, `pass_redeemed`, `pass_redemption_failed`
+
+### 2. Privacy & Consent Safeguards
+
+- **Google Consent Mode v2**: Initialized with `analytics_storage: 'denied'` before `gtag.js` loads; updated dynamically when user accepts/declines via [`ConsentBanner`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/src/components/analytics/ConsentBanner.tsx).
+- **Zero PII Policy**: Event payloads strictly omit personal names, email addresses, passport/visa numbers, credit card numbers, UPI PINs, and raw QR secrets.
+- **Demo Data Separation**: Events in development and staging are tagged with `is_demo: true` to prevent polluting real-world production analytics.
+- **Fail-Safe Operation**: If GA4 is blocked, offline, or unconfigured, the application functions seamlessly without runtime errors.
+
+### 3. Setup & Credentials
+
+Create `.env.local` from [`.env.example`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/.env.example):
+
+```env
+# Google Analytics 4 Measurement ID
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Tag development/staging simulated transactions (true / false)
+NEXT_PUBLIC_GA_DEMO_MODE=true
+```
+
+To view live events during development:
+1. Open Google Analytics Console → **Admin** → **DebugView**.
+2. Open Browser DevTools (`F12`) → Console to inspect `[GA4]` telemetry logs.
+3. Visit [`/admin`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/src/app/admin/page.tsx) to view real-time in-memory simulation metrics.
+
+---
+
 ## Verification & Test Results
 
-The platform includes automated testing for all core workflows:
+The platform includes automated testing across all core modules:
+- **GA4 Analytics & Telemetry**: [`tests/analytics/ga4-analytics.test.ts`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/tests/analytics/ga4-analytics.test.ts)
 - **Property & Correctness Tests**: [`tests/property/correctness.test.ts`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/tests/property/correctness.test.ts)
 - **International Tourist Journey E2E**: [`tests/e2e/international-tourist-journey.test.ts`](file:///Users/shiva/Documents/Projects/TN%20Smart_tourism/tests/e2e/international-tourist-journey.test.ts)
 
-**Test Status**: **13 / 13 Passing**
+**Test Status**: **40 / 40 Passing across 3 Test Suites**
+```bash
+PASS tests/analytics/ga4-analytics.test.ts
+PASS tests/property/correctness.test.ts
+PASS tests/e2e/international-tourist-journey.test.ts
+
+Test Suites: 3 passed, 3 total
+Tests:       40 passed, 40 total
+```

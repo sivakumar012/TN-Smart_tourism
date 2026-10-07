@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ShieldCheck, Search, CheckCircle2, AlertTriangle, XCircle, Clock, QrCode, RefreshCw } from "lucide-react";
 import { validatePassForRedemption, redeemPass, RedemptionValidationResult } from "@/lib/redemption";
+import { trackPassRedeemed, trackPassRedemptionFailed } from "@/lib/analytics";
 
 export default function OperatorRedeemPage() {
   const [passInput, setPassInput] = useState("");
@@ -22,6 +23,21 @@ export default function OperatorRedeemPage() {
 
     const res = validatePassForRedemption(passInput);
     setValidation(res);
+
+    // Track validation failures immediately
+    if (res.resultCode !== "VALID") {
+      const reasonMap: Record<string, string> = {
+        ALREADY_REDEEMED: "pass_already_redeemed",
+        EXPIRED: "pass_expired",
+        INVALID: "pass_not_found",
+      };
+      trackPassRedemptionFailed({
+        pass_name: res.passPackageName,
+        redemption_status: res.resultCode.toLowerCase() as "already_redeemed" | "expired" | "invalid",
+        failure_reason: (reasonMap[res.resultCode] ?? "unknown") as any,
+        destination: "Chennai-Mahabalipuram",
+      });
+    }
   };
 
   const handleRedeem = () => {
@@ -32,8 +48,21 @@ export default function OperatorRedeemPage() {
       setMessage("Pass redeemed successfully!");
       // Re-query validation status to instantly reflect REDEEMED status
       setValidation(validatePassForRedemption(passInput));
+      // Track successful redemption
+      trackPassRedeemed({
+        pass_name: validation?.passPackageName,
+        redemption_status: "success",
+        destination: "Chennai-Mahabalipuram",
+      });
     } else {
       setMessage(res.message);
+      // Track failed redemption attempt
+      trackPassRedemptionFailed({
+        pass_name: validation?.passPackageName,
+        redemption_status: res.resultCode.toLowerCase() as "already_redeemed" | "expired" | "invalid",
+        failure_reason: "pass_already_redeemed",
+        destination: "Chennai-Mahabalipuram",
+      });
     }
   };
 

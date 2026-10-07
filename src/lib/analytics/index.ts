@@ -39,15 +39,23 @@ export type ConsentState = "granted" | "denied" | "pending";
 
 export function getConsentState(): ConsentState {
   if (typeof window === "undefined") return "pending";
-  const stored = localStorage.getItem(CONSENT_KEY);
-  if (stored === "granted") return "granted";
-  if (stored === "denied") return "denied";
-  return "pending";
+  try {
+    const stored = window.localStorage?.getItem(CONSENT_KEY);
+    if (stored === "granted") return "granted";
+    if (stored === "denied") return "denied";
+    return "pending";
+  } catch {
+    return "pending";
+  }
 }
 
 export function setConsentState(state: "granted" | "denied"): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem(CONSENT_KEY, state);
+  try {
+    window.localStorage?.setItem(CONSENT_KEY, state);
+  } catch {
+    // Analytics storage failure should not break app
+  }
 
   // Update GA4 Consent Mode
   if (typeof window.gtag === "function") {
@@ -248,7 +256,11 @@ export interface PaymentResultParams extends BaseEventParams {
 const firedEvents = new Set<string>();
 
 function getDedupKey(name: string, params?: Record<string, unknown>): string {
-  const key = params?.transaction_id ?? params?.pass_id ?? params?.item?.item_id;
+  const item = params?.item as { item_id?: string } | undefined;
+  const key =
+    (params?.transaction_id as string | undefined) ??
+    (params?.pass_id as string | undefined) ??
+    item?.item_id;
   return key ? `${name}:${key}` : "";
 }
 
@@ -531,11 +543,11 @@ export function trackWalletFundingCompleted(
 
 declare global {
   interface Window {
-    gtag: (
-      command: "config" | "event" | "consent" | "set" | "js",
-      target: string | Date | Gtag.ConsentParams,
+    gtag?: (
+      command: "config" | "event" | "consent" | "set" | "js" | string,
+      target?: string | Date | Record<string, unknown>,
       params?: Record<string, unknown>
     ) => void;
-    dataLayer: unknown[];
+    dataLayer?: unknown[];
   }
 }
