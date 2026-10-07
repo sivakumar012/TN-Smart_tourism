@@ -7,6 +7,11 @@ import { db } from "@/lib/db";
 import { demoPaymentProvider } from "@/lib/payment/DemoPaymentProvider";
 import { processBookingAndPass } from "@/lib/booking";
 import { VisitorType } from "@/types";
+import {
+  trackPurchase,
+  trackBookingFailed,
+  trackPaymentResult,
+} from "@/lib/analytics";
 
 function AuthorizePaymentContent() {
   const router = useRouter();
@@ -76,6 +81,37 @@ function AuthorizePaymentContent() {
         });
 
         if (bookingResult.booking && bookingResult.digitalPass) {
+          // Track successful purchase — deduplicated by payment reference
+          trackPurchase({
+            transaction_id: paymentResult.provider_reference,
+            currency: "INR",
+            value: totalAmount,
+            pass_id: pkg.id,
+            pass_name: pkg.name,
+            quantity,
+            payment_method: walletId ? "upi_one_world" : "indian_payment",
+            visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+            destination: "Chennai-Mahabalipuram",
+            items: [{
+              item_id: pkg.id,
+              item_name: pkg.name,
+              item_category: "Tourism Pass",
+              price: pkg.demo_price,
+              quantity,
+              currency: "INR",
+            }],
+          });
+          trackPaymentResult({
+            currency: "INR",
+            value: totalAmount,
+            payment_method: walletId ? "upi_one_world" : "indian_payment",
+            payment_status: "success",
+            pass_id: pkg.id,
+            pass_name: pkg.name,
+            visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+            destination: "Chennai-Mahabalipuram",
+          });
+
           const params = new URLSearchParams({
             status: "SUCCESS",
             bookingRef: bookingResult.booking.booking_reference,
@@ -85,9 +121,44 @@ function AuthorizePaymentContent() {
           });
           router.push(`/payment/result?${params.toString()}`);
         } else {
+          // Booking creation failed after payment
+          trackBookingFailed({
+            pass_id: pkg.id,
+            pass_name: pkg.name,
+            currency: "INR",
+            value: totalAmount,
+            payment_method: walletId ? "upi_one_world" : "indian_payment",
+            failure_reason: "booking_creation_failed",
+            booking_status: "failed",
+            visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+            destination: "Chennai-Mahabalipuram",
+          });
           setError("Booking creation failed.");
         }
       } else {
+        // Payment failed — never generate purchase event
+        trackBookingFailed({
+          pass_id: pkg.id,
+          pass_name: pkg.name,
+          currency: "INR",
+          value: totalAmount,
+          payment_method: walletId ? "upi_one_world" : "indian_payment",
+          failure_reason: "insufficient_balance",
+          booking_status: "failed",
+          visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+          destination: "Chennai-Mahabalipuram",
+        });
+        trackPaymentResult({
+          currency: "INR",
+          value: totalAmount,
+          payment_method: walletId ? "upi_one_world" : "indian_payment",
+          payment_status: "failed",
+          pass_id: pkg.id,
+          pass_name: pkg.name,
+          failure_reason: "insufficient_balance",
+          visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+          destination: "Chennai-Mahabalipuram",
+        });
         // Payment failed (Property 4: Failed payment creates no confirmed booking)
         const params = new URLSearchParams({
           status: "FAILED",

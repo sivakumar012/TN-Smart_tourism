@@ -1,11 +1,15 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Ticket, ShieldCheck, Lock, Globe, CreditCard, ArrowRight, User, Mail, Minus, Plus } from "lucide-react";
 import { db } from "@/lib/db";
 import { VisitorType } from "@/types";
+import {
+  trackCheckoutStarted,
+  trackPaymentMethodSelected,
+} from "@/lib/analytics";
 
 function CheckoutContent() {
   const router = useRouter();
@@ -23,8 +27,54 @@ function CheckoutContent() {
 
   const totalAmount = pkg.demo_price * quantity;
 
+  // Track checkout start on mount
+  useEffect(() => {
+    trackCheckoutStarted({
+      currency: "INR",
+      value: pkg.demo_price * quantity,
+      pass_id: pkg.id,
+      pass_name: pkg.name,
+      quantity,
+      destination: "Chennai-Mahabalipuram",
+      visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+      items: [{
+        item_id: pkg.id,
+        item_name: pkg.name,
+        item_category: "Tourism Pass",
+        price: pkg.demo_price,
+        quantity,
+        currency: "INR",
+      }],
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Track payment method selection before navigation
+    const methodMap: Record<string, string> = {
+      UPI_ONE_WORLD: "upi_one_world",
+      INTERNATIONAL_CARD: "international_card",
+      INDIAN_PAYMENT: "indian_payment",
+    };
+    trackPaymentMethodSelected({
+      currency: "INR",
+      value: totalAmount,
+      payment_method: methodMap[paymentOption] ?? paymentOption,
+      pass_id: pkg.id,
+      pass_name: pkg.name,
+      visitor_type: visitorType === "INTERNATIONAL" ? "international" : "domestic",
+      destination: "Chennai-Mahabalipuram",
+      items: [{
+        item_id: pkg.id,
+        item_name: pkg.name,
+        item_category: "Tourism Pass",
+        price: pkg.demo_price,
+        quantity,
+        currency: "INR",
+      }],
+    });
 
     const params = new URLSearchParams({
       passId: pkg.id,

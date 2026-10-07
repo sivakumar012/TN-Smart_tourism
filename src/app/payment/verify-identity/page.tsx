@@ -1,19 +1,39 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Camera, CheckCircle2, AlertCircle, ArrowRight, RefreshCw, ShieldCheck } from "lucide-react";
 import { VerificationState } from "@/types";
+import {
+  trackPaymentOnboardingStarted,
+  trackVisitorVerificationCompleted,
+} from "@/lib/analytics";
 
 function VerifyIdentityContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [verificationState, setVerificationState] = useState<VerificationState>("NOT_STARTED");
 
+  // Track identity verification step started
+  useEffect(() => {
+    trackPaymentOnboardingStarted({
+      flow_step: "identity_verification",
+      visitor_type: "international",
+      destination: "Chennai-Mahabalipuram",
+    });
+  }, []);
+
   const startSimulatedVerification = () => {
     setVerificationState("VERIFYING");
     setTimeout(() => {
       setVerificationState("VERIFIED");
+      // Track identity verification completed
+      trackVisitorVerificationCompleted({
+        flow_step: "identity_verification",
+        payment_status: "success",
+        visitor_type: "international",
+        destination: "Chennai-Mahabalipuram",
+      });
     }, 1500);
   };
 

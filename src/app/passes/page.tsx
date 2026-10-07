@@ -1,9 +1,31 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 import { Ticket, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from "lucide-react";
 import { db } from "@/lib/db";
+import { trackViewPassList, trackSelectItem } from "@/lib/analytics";
 
 export default function PassesPage() {
   const passes = db.getPassPackages();
+
+  // Track pass list view on mount
+  useEffect(() => {
+    if (passes.length === 0) return;
+    trackViewPassList({
+      item_list_id: "tourism_passes",
+      item_list_name: "Tourism Passes",
+      destination: "Chennai-Mahabalipuram",
+      items: passes.map((p) => ({
+        item_id: p.id,
+        item_name: p.name,
+        item_category: "Tourism Pass",
+        price: p.demo_price,
+        currency: "INR",
+      })),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -89,6 +111,20 @@ export default function PassesPage() {
 
                 <Link
                   href={`/passes/${pkg.id}`}
+                  onClick={() =>
+                    trackSelectItem({
+                      item_list_id: "tourism_passes",
+                      item_list_name: "Tourism Passes",
+                      destination: "Chennai-Mahabalipuram",
+                      item: {
+                        item_id: pkg.id,
+                        item_name: pkg.name,
+                        item_category: "Tourism Pass",
+                        price: pkg.demo_price,
+                        currency: "INR",
+                      },
+                    })
+                  }
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-teal-400 text-navy-950 font-bold text-sm hover:from-teal-400 hover:to-teal-300 transition-all shadow-lg shadow-teal-500/20"
                 >
                   <span>View Pass Details</span>

@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Compass, Search, Filter, MapPin, ArrowRight } from "lucide-react";
 import { db } from "@/lib/db";
 import { Attraction } from "@/types";
+import {
+  trackViewAttractionList,
+  trackSelectItem,
+} from "@/lib/analytics";
 
 const CATEGORIES = ["All", "Heritage", "Culture", "Experience", "Coastal"];
 
@@ -16,6 +20,24 @@ export default function ExplorePage() {
     selectedCategory === "All" ? undefined : selectedCategory,
     searchQuery
   );
+
+  // Track attraction list view when list updates
+  useEffect(() => {
+    if (attractions.length === 0) return;
+    trackViewAttractionList({
+      item_list_id: "explore_attractions",
+      item_list_name: "Explore Attractions",
+      destination: "Chennai-Mahabalipuram",
+      items: attractions.map((a) => ({
+        item_id: a.id,
+        item_name: a.name,
+        item_category: a.category,
+        price: a.demo_price,
+        currency: "INR",
+      })),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedCategory, searchQuery]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
@@ -123,6 +145,20 @@ export default function ExplorePage() {
                   </div>
                   <Link
                     href={`/attraction/${attr.id}`}
+                    onClick={() =>
+                      trackSelectItem({
+                        item_list_id: "explore_attractions",
+                        item_list_name: "Explore Attractions",
+                        destination: "Chennai-Mahabalipuram",
+                        item: {
+                          item_id: attr.id,
+                          item_name: attr.name,
+                          item_category: attr.category,
+                          price: attr.demo_price,
+                          currency: "INR",
+                        },
+                      })
+                    }
                     className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/30 text-xs font-bold hover:bg-teal-500/20 transition-colors"
                   >
                     <span>Details</span>

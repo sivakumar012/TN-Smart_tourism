@@ -1,12 +1,22 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Globe, ArrowRight, ShieldCheck, CheckCircle2, Lock, Info } from "lucide-react";
+import { trackPaymentOnboardingStarted } from "@/lib/analytics";
 
 function UpiOneWorldContent() {
   const searchParams = useSearchParams();
+
+  // Track when international visitor views the UPI One World intro
+  useEffect(() => {
+    trackPaymentOnboardingStarted({
+      flow_step: "upi_intro_viewed",
+      visitor_type: "international",
+      destination: "Chennai-Mahabalipuram",
+    });
+  }, []);
 
   return (
     <div className="p-6 sm:p-8 rounded-2xl glass-panel space-y-6 border-teal-500/30">

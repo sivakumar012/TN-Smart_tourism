@@ -1,16 +1,38 @@
+"use client";
+
+/**
+ * AttractionDetailPage — instruments view_item on mount.
+ * Converting from a Server Component to a Client Component solely for analytics.
+ * No UI changes.
+ */
+
+import { useEffect } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, Ticket, ArrowLeft, Info, CheckCircle2 } from "lucide-react";
 import { db } from "@/lib/db";
+import { trackViewItem } from "@/lib/analytics";
+import { useParams } from "next/navigation";
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+export default function AttractionDetailPage() {
+  const params = useParams();
+  const id = typeof params.id === "string" ? params.id : "";
+  const attraction = db.getAttractionById(id);
 
-export default function AttractionDetailPage({ params }: PageProps) {
-  const attraction = db.getAttractionById(params.id);
+  useEffect(() => {
+    if (!attraction) return;
+    trackViewItem({
+      attraction_id: attraction.id,
+      destination: "Chennai-Mahabalipuram",
+      item: {
+        item_id: attraction.id,
+        item_name: attraction.name,
+        item_category: attraction.category,
+        price: attraction.demo_price,
+        currency: "INR",
+      },
+    });
+  }, [attraction]);
 
   if (!attraction) {
     notFound();

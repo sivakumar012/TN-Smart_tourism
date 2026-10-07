@@ -1,8 +1,12 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Globe, ArrowRight, ShieldCheck, FileText, CheckCircle2 } from "lucide-react";
+import {
+  trackPaymentOnboardingStarted,
+  trackVisitorVerificationCompleted,
+} from "@/lib/analytics";
 
 function VerifyVisitorForm() {
   const router = useRouter();
@@ -12,8 +16,24 @@ function VerifyVisitorForm() {
   const [mobile, setMobile] = useState("+1 555-019-2834");
   const [email, setEmail] = useState(searchParams.get("email") || "tourist@example.com");
 
+  // Track onboarding step started
+  useEffect(() => {
+    trackPaymentOnboardingStarted({
+      flow_step: "visitor_verification",
+      visitor_type: "international",
+      destination: "Chennai-Mahabalipuram",
+    });
+  }, []);
+
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+    // Track step completion — only country (non-PII identifier) is logged
+    trackVisitorVerificationCompleted({
+      flow_step: "visitor_verification",
+      payment_status: "success",
+      visitor_type: "international",
+      destination: "Chennai-Mahabalipuram",
+    });
     const current = new URLSearchParams(searchParams.toString());
     current.set("country", country);
     current.set("mobile", mobile);

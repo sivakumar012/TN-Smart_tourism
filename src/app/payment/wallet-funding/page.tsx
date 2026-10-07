@@ -4,6 +4,7 @@ import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CheckCircle2, ArrowRight, CreditCard, Lock, ShieldCheck, DollarSign } from "lucide-react";
 import { demoPaymentProvider } from "@/lib/payment/DemoPaymentProvider";
+import { trackWalletFundingCompleted } from "@/lib/analytics";
 
 function WalletFundingContent() {
   const router = useRouter();
@@ -37,6 +38,14 @@ function WalletFundingContent() {
       });
 
       if (result.success) {
+        // Track wallet funding completion
+        trackWalletFundingCompleted({
+          flow_step: "wallet_funding",
+          currency: "INR",
+          value: amountToFund,
+          visitor_type: "international",
+          destination: "Chennai-Mahabalipuram",
+        });
         const params = new URLSearchParams(searchParams.toString());
         params.set("fundedAmount", amountToFund.toString());
         params.set("newBalance", result.new_balance.toString());
