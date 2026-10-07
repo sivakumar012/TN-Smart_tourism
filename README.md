@@ -201,7 +201,7 @@ Create `.env.local` from [`.env.example`](file:///Users/shiva/Documents/Projects
 
 ```env
 # Google Analytics 4 Measurement ID
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-C0637BGNB7
 
 # Tag development/staging simulated transactions (true / false)
 NEXT_PUBLIC_GA_DEMO_MODE=true
