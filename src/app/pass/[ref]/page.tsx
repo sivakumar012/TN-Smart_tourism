@@ -5,6 +5,8 @@ import { Ticket, MapPin, Clock, ShieldCheck, ArrowLeft, CheckCircle2, AlertTrian
 import { db } from "@/lib/db";
 import { DigitalPassAnalytics } from "@/components/analytics/DigitalPassAnalytics";
 
+export const runtime = "edge";
+
 interface PageProps {
   params: {
     ref: string;

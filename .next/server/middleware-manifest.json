@@ -1,6 +1,134 @@
 {
   "version": 3,
   "middleware": {},
-  "functions": {},
+  "functions": {
+    "/attraction/[id]/page": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/attraction/[id]/page_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/503.js",
+        "server/edge-chunks/24.js",
+        "server/app/attraction/[id]/page.js"
+      ],
+      "name": "app/attraction/[id]/page",
+      "page": "/attraction/[id]/page",
+      "matchers": [
+        {
+          "regexp": "^/attraction/(?<id>[^/]+?)$",
+          "originalSource": "/attraction/[id]"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "xYbtdzFORGDeQiKhuW2cn",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "go7C62PH4NOotiFB4Y81aF14iYpXJkLcK5mNCynf2pg=",
+        "__NEXT_PREVIEW_MODE_ID": "59235b156b9f1ece7a5fe1b28b1d176c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a3a4f1c0b5de2cd38b19664bc7b6437eb5760c096aaf966be8472a7dbc93a222",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9fc0782a0aeeed390546199ecbc38ef04768927145253cc1147e50ab4bf55660"
+      }
+    },
+    "/booking/[ref]/page": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/booking/[ref]/page_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/503.js",
+        "server/edge-chunks/24.js",
+        "server/edge-chunks/986.js",
+        "server/app/booking/[ref]/page.js"
+      ],
+      "name": "app/booking/[ref]/page",
+      "page": "/booking/[ref]/page",
+      "matchers": [
+        {
+          "regexp": "^/booking/(?<ref>[^/]+?)$",
+          "originalSource": "/booking/[ref]"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "xYbtdzFORGDeQiKhuW2cn",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "go7C62PH4NOotiFB4Y81aF14iYpXJkLcK5mNCynf2pg=",
+        "__NEXT_PREVIEW_MODE_ID": "59235b156b9f1ece7a5fe1b28b1d176c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a3a4f1c0b5de2cd38b19664bc7b6437eb5760c096aaf966be8472a7dbc93a222",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9fc0782a0aeeed390546199ecbc38ef04768927145253cc1147e50ab4bf55660"
+      }
+    },
+    "/passes/[id]/page": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/passes/[id]/page_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/503.js",
+        "server/edge-chunks/24.js",
+        "server/edge-chunks/986.js",
+        "server/app/passes/[id]/page.js"
+      ],
+      "name": "app/passes/[id]/page",
+      "page": "/passes/[id]/page",
+      "matchers": [
+        {
+          "regexp": "^/passes/(?<id>[^/]+?)$",
+          "originalSource": "/passes/[id]"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "xYbtdzFORGDeQiKhuW2cn",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "go7C62PH4NOotiFB4Y81aF14iYpXJkLcK5mNCynf2pg=",
+        "__NEXT_PREVIEW_MODE_ID": "59235b156b9f1ece7a5fe1b28b1d176c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a3a4f1c0b5de2cd38b19664bc7b6437eb5760c096aaf966be8472a7dbc93a222",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9fc0782a0aeeed390546199ecbc38ef04768927145253cc1147e50ab4bf55660"
+      }
+    },
+    "/pass/[ref]/page": {
+      "files": [
+        "server/server-reference-manifest.js",
+        "server/app/pass/[ref]/page_client-reference-manifest.js",
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/503.js",
+        "server/edge-chunks/24.js",
+        "server/edge-chunks/986.js",
+        "server/app/pass/[ref]/page.js"
+      ],
+      "name": "app/pass/[ref]/page",
+      "page": "/pass/[ref]/page",
+      "matchers": [
+        {
+          "regexp": "^/pass/(?<ref>[^/]+?)$",
+          "originalSource": "/pass/[ref]"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "xYbtdzFORGDeQiKhuW2cn",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "go7C62PH4NOotiFB4Y81aF14iYpXJkLcK5mNCynf2pg=",
+        "__NEXT_PREVIEW_MODE_ID": "59235b156b9f1ece7a5fe1b28b1d176c",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a3a4f1c0b5de2cd38b19664bc7b6437eb5760c096aaf966be8472a7dbc93a222",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "9fc0782a0aeeed390546199ecbc38ef04768927145253cc1147e50ab4bf55660"
+      }
+    }
+  },
   "sortedMiddleware": []
 }

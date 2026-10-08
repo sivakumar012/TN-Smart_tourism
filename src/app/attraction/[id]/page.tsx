@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = "edge";
+
 /**
  * AttractionDetailPage — instruments view_item on mount.
  * Converting from a Server Component to a Client Component solely for analytics.

@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { CheckCircle2, Ticket, MapPin, ArrowRight, User, Mail, ShieldCheck } from "lucide-react";
 import { db } from "@/lib/db";
 
+export const runtime = "edge";
+
 interface PageProps {
   params: {
     ref: string;
