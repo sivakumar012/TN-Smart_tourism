@@ -8,7 +8,8 @@ A digital tourism platform for Tamil Nadu's pilot corridors (**Chennai–Mahabal
 
 ## Live Deployment & Access
 
-- **Public Production Tunnel**: [https://smart-tourism.fluxrn.com](https://smart-tourism.fluxrn.com)
+- **Public Production URL**: [https://smart-tourism.fluxrn.com](https://smart-tourism.fluxrn.com)
+- **Workers Edge URL**: [https://smart-tourism.sivakumar012.workers.dev](https://smart-tourism.sivakumar012.workers.dev)
 - **Local Dev Server**: `http://localhost:3000`
 - **Operator Redemption Portal**: [https://smart-tourism.fluxrn.com/redeem](https://smart-tourism.fluxrn.com/redeem)
 - **Department Admin Dashboard**: [https://smart-tourism.fluxrn.com/admin](https://smart-tourism.fluxrn.com/admin)
@@ -146,11 +147,14 @@ npm test
 npm run dev
 ```
 
-### Cloudflare Tunnel Setup (For Remote / Mobile Testing)
+### Production Edge Deployment (Cloudflare)
 
 ```bash
-# Run named tunnel pointing to local server
-cloudflared tunnel run --url http://localhost:3000 smart-tourism-tunnel
+# Build for Cloudflare Edge
+npm run pages:build
+
+# Deploy to Cloudflare Workers / Pages & Custom Domain
+npx wrangler deploy
 ```
 
 ---
