@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "test:e2e": "jest tests/e2e/international-tourist-journey.test.ts",
-    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:build": "npx @cloudflare/next-on-pages && echo '_worker.js' > .vercel/output/static/.assetsignore",
     "pages:deploy": "npx wrangler pages deploy .vercel/output/static"
   },
   "dependencies": {
