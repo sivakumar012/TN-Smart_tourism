@@ -2,7 +2,7 @@
 
 > **Explore smarter. Experience more.**
 
-A digital tourism platform for Tamil Nadu's pilot corridors (**Chennai–Mahabalipuram** and **Coimbatore Heritage & Wellness Corridor**) that helps international and domestic visitors discover attractions, select bundled tourism passes, complete seamless payments (including international debit/credit card onboarding via **UPI One World**), receive digital QR passes, and redeem them at participating attraction entry points.
+A digital tourism platform for Tamil Nadu's pilot corridors (**Chennai–Mahabalipuram** and **Coimbatore Heritage & Wellness Corridor**) that helps international and domestic visitors discover attractions, select bundled tourism passes, Completed seamless payments (including international debit/credit card onboarding via **UPI One World**), receive digital QR passes, and redeem them at participating attraction entry points.
 
 ---
 
@@ -54,19 +54,19 @@ International tourists visiting Tamil Nadu historically face friction at attract
 
 | Feature / Phase | Target Capability | Status |
 |---|---|---|
-| Phase 1: Workspace Governance | Antigravity steering, rules, & structure | Complete |
-| Phase 2: Application Shell & Brand | Coastal Heritage design system, brand logo, bilingual switch | Complete |
-| Phase 3: Tourist Discovery | Corridor filterable catalog & photo-realistic attraction cards | Complete |
-| Phase 4: Pass Selection | Chennai & Coimbatore bundled passes & customization | Complete |
-| Phase 5: Foreign Payment Onboarding | UPI One World card & passport verification flow | Complete |
-| Phase 6: Demo Wallet | Instant balance loading & card transaction simulation | Complete |
-| Phase 7: Demo Payment | Seamless checkout & transaction receipt generation | Complete |
-| Phase 8: Booking & Digital Pass | Dynamic QR token generator & validity countdown | Complete |
-| Phase 9: Gate Redemption | Operator camera scanner & 4-digit PIN verification | Complete |
-| Phase 10: Admin Dashboard | Live analytics, revenue, pass breakdown, & redemption logs | Complete |
-| Phase 11: End-to-End Testing | Automated Jest E2E test suites & property validation | Complete |
-| Phase 12: UX & Aesthetics Refinement | Google Stitch aligned UI, glassmorphism, responsive hero showcase | Complete |
-| Phase 13: GA4 Telemetry & Funnel Tracking | Privacy-first GA4 integration, Consent Mode v2, e-commerce funnel, zero-PII | Complete |
+| Phase 1: Workspace Governance | Antigravity steering, rules, & structure | Completed |
+| Phase 2: Application Shell & Brand | Coastal Heritage design system, brand logo, bilingual switch | Completed |
+| Phase 3: Tourist Discovery | Corridor filterable catalog & photo-realistic attraction cards | Completed |
+| Phase 4: Pass Selection | Chennai & Coimbatore bundled passes & customization | Completed |
+| Phase 5: Foreign Payment Onboarding | UPI One World card & passport verification flow | Completed |
+| Phase 6: Demo Wallet | Instant balance loading & card transaction simulation | Completed |
+| Phase 7: Demo Payment | Seamless checkout & transaction receipt generation | Completed |
+| Phase 8: Booking & Digital Pass | Dynamic QR token generator & validity countdown | Completed |
+| Phase 9: Gate Redemption | Operator camera scanner & 4-digit PIN verification | Completed |
+| Phase 10: Admin Dashboard | Live analytics, revenue, pass breakdown, & redemption logs | Completed |
+| Phase 11: End-to-End Testing | Automated Jest E2E test suites & property validation | Completed |
+| Phase 12: UX & Aesthetics Refinement | Google Stitch aligned UI, glassmorphism, responsive hero showcase | Completed |
+| Phase 13: GA4 Telemetry & Funnel Tracking | Privacy-first GA4 integration, Consent Mode v2, e-commerce funnel, zero-PII | Completed |
 
 ---
 
@@ -188,7 +188,7 @@ The platform incorporates privacy-by-design GA4 event telemetry across the entir
 
 - **Attractions & Passes Discovery**: `view_item_list`, `view_item`, `select_item`
 - **Checkout & Payment**: `begin_checkout`, `add_payment_info`
-- **UPI One World Onboarding**: `payment_onboarding_started`, `visitor_verification_completed`, `wallet_funding_completed`
+- **UPI One World Onboarding**: `payment_onboarding_started`, `visitor_verification_Completedd`, `wallet_funding_Completedd`
 - **Booking & Safety**: `purchase` (deduplicated by `transaction_id`), `booking_failed` (on payment errors, never logged as purchase)
 - **Pass Usage & Gate Redemption**: `view_digital_pass`, `pass_redeemed`, `pass_redemption_failed`
 
