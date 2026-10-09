@@ -157,29 +157,6 @@ npm run pages:build
 npx wrangler deploy
 ```
 
----
-
-## Payment Provider Abstraction
-
-All financial and onboarding operations route through a clean `PaymentProvider` interface:
-
-```typescript
-export interface PaymentProvider {
-  initializeOnboarding(session: OnboardingInput): Promise<OnboardingResult>;
-  verifyVisitor(data: VisitorVerificationInput): Promise<VerificationResult>;
-  verifyIdentity(data: IdentityVerificationInput): Promise<VerificationResult>;
-  createWallet(session: WalletCreationInput): Promise<WalletResult>;
-  loadWallet(session: WalletLoadInput): Promise<WalletLoadResult>;
-  getWalletBalance(walletId: string): Promise<BalanceResult>;
-  authorizePayment(payment: PaymentInput): Promise<PaymentResult>;
-  getPaymentStatus(paymentId: string): Promise<PaymentStatusResult>;
-}
-```
-
-The current implementation (`DemoPaymentProvider`) simulates real-world UPI One World workflows and can be replaced with an authorized production PSP / PPI partner module seamlessly.
-
----
-
 ## Google Analytics 4 (GA4) Integration & Telemetry
 
 The platform incorporates privacy-by-design GA4 event telemetry across the entire tourist journey:
